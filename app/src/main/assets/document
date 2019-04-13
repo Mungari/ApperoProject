@@ -1,0 +1,53 @@
+[
+  {
+    "idPercorso": "P1",
+    "origine": [
+      {
+        "link": "http://mondopcnet.com/test01/index.php/15-percorso-1/p1/40-p1-1",
+        "lat": "45.639229",
+        "long": "9.585699"
+      }
+    ],
+    "destinazione": [
+      {
+        "link": "http://mondopcnet.com/test01/index.php/15-percorso-1/p1/41-p1-2",
+        "lat": "45.650975",
+        "long": "9.593477"
+      }
+    ],
+    "intermedi": [
+      {
+        "id": "1",
+        "link": "http://mondopcnet.com/test01/index.php/15-percorso-1/p1/45-isis-einaudi",
+        "idIntermedio": "1",
+        "lat": "45.455957",
+        "long": "9.605784"
+      }
+    ]
+  },
+  {
+    "idPercorso": "P2",
+    "origine": [
+      {
+        "link": "http://mondopcnet.com/test01/index.php/16-percorso-1/p2/42-p2-1",
+        "lat": "45.605221",
+        "long": "9.629460"
+      }
+    ],
+    "destinazione": [
+      {
+        "link": "http://mondopcnet.com/test01/index.php/16-percorso-1/p2/44-p2-4",
+        "lat": "45.576970",
+        "long": "9.614648"
+      }
+    ],
+    "intermedi": [
+      {
+        "link": "http://mondopcnet.com/test01/index.php/16-percorso-1/p2/43-p2-3 ",
+        "idIntermedio": "1",
+        "lat": "45.586594",
+        "long": "9.640295"
+      }
+    ]
+  }
+]
