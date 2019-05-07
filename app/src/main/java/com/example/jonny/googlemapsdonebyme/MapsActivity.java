@@ -6,7 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -52,7 +52,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        Button home = findViewById(R.id.btnHome);
+        ImageButton home = findViewById(R.id.btnHome);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -267,10 +267,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void ottieniJson() {
         Percorso = getIntent().getStringExtra("Percorso");
-        String lat = new String();
-        String lon = new String();
-        String link = new String();
-        String id = new String();
+        String lat = "";
+        String lon = "";
+        String link = "";
+        String id = "";
 
         String json;
         try {

@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
+import android.widget.ImageButton;
 
 import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
@@ -17,7 +19,7 @@ import com.google.android.gms.vision.barcode.BarcodeDetector;
 
 import java.io.IOException;
 
-public class QrReader extends AppCompatActivity {
+public class QrReaderActivity extends AppCompatActivity {
 
     SurfaceView surfaceView;
     private BarcodeDetector barcodeDetector;
@@ -26,12 +28,35 @@ public class QrReader extends AppCompatActivity {
     String intentData = "";
     int count = 0;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr_reader);
 
         surfaceView = findViewById(R.id.surfaceView);
+
+
+        ImageButton home = findViewById(R.id.btnHome);
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(QrReaderActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[]
+            grantResults) {
+        if (requestCode == REQUEST_CAMERA_PERMISSION) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                finish();
+                startActivity(getIntent());
+            }
+        }
     }
 
     private void initialiseDetectorsAndSources() {
@@ -48,10 +73,10 @@ public class QrReader extends AppCompatActivity {
             @Override
             public void surfaceCreated(SurfaceHolder holder) {
                 try {
-                    if (ActivityCompat.checkSelfPermission(QrReader.this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+                    if (ActivityCompat.checkSelfPermission(QrReaderActivity.this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                         cameraSource.start(surfaceView.getHolder());
                     } else {
-                        ActivityCompat.requestPermissions(QrReader.this, new
+                        ActivityCompat.requestPermissions(QrReaderActivity.this, new
                                 String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
                     }
 
@@ -85,7 +110,7 @@ public class QrReader extends AppCompatActivity {
                         public void run() {
                             count++;
                             intentData = barcodes.valueAt(0).displayValue;
-                            Intent i = new Intent(QrReader.this, webActivity.class);
+                            Intent i = new Intent(QrReaderActivity.this, webActivity.class);
                             i.putExtra("Informazioni", intentData);
                             startActivity(i);
                         }
@@ -95,7 +120,6 @@ public class QrReader extends AppCompatActivity {
             }
         });
     }
-
 
     @Override
     protected void onPause() {

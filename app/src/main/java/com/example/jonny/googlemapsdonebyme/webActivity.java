@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 public class webActivity extends AppCompatActivity {
 
@@ -16,7 +16,8 @@ public class webActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web);
         WebView web = findViewById(R.id.web);
-        Button button = findViewById(R.id.Home);
+        ImageButton btnMap = findViewById(R.id.btnMap);
+        ImageButton btnHome = findViewById(R.id.btnHome);
 
         String Valore = getIntent().getStringExtra("Informazioni");
 
@@ -32,13 +33,20 @@ public class webActivity extends AppCompatActivity {
                 return true;
             }
         });
-        button.setOnClickListener(new View.OnClickListener() {
+        btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String Percorso = "Percorso";
                 Intent goToApp = new Intent(webActivity.this, MapsActivity.class);
                 goToApp.putExtra("Percorso", percorso); // il  valore deve essere una stringa
                 startActivity(goToApp);
+            }
+        });
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(webActivity.this, MainActivity.class);
+                startActivity(i);
             }
         });
 

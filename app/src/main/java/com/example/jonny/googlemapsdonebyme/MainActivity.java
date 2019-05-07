@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageButton btnPerc = findViewById(R.id.mapMarker);
+        LinearLayout btnPerc = findViewById(R.id.mapMarker);
         btnPerc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -21,11 +21,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        ImageButton btnQr = findViewById(R.id.btnCode);
+        LinearLayout btnQr = findViewById(R.id.btnCode);
         btnQr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, QrReader.class);
+                Intent i = new Intent(MainActivity.this, QrReaderActivity.class);
                 startActivity(i);
             }
         });

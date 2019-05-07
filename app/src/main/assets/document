@@ -1,6 +1,9 @@
 [
   {
     "idPercorso": "P1",
+    "imgPercorso": "linkWeb",
+    "nomePercorso":"",
+    "descrizione":""
     "origine": [
       {
         "link": "http://mondopcnet.com/test01/index.php/15-percorso-1/p1/40-p1-1",
@@ -27,6 +30,9 @@
   },
   {
     "idPercorso": "P2",
+    "imgPercorso": "linkWeb",
+        "nomePercorso":"",
+        "descrizione":""
     "origine": [
       {
         "link": "http://mondopcnet.com/test01/index.php/16-percorso-1/p2/42-p2-1",
